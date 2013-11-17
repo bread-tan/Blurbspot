@@ -14,13 +14,13 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.php">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
+      <li><a href="#">Artist of The Week</a></li>
+      <li><a href="#">Band of The Week</a></li>
+      <li><a href="#">Top 10</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         &nbsp;
-        <button class='btn btn-inverse navbar-btn' onclick="signUpModalBringUp()">Sign Up!</button>
+        <button class='btn btn-info navbar-btn' onclick="signUpModalBringUp()">Sign Up!</button>
         &nbsp;
         <button class='btn btn-primary navbar-btn' onclick="signInModalBringUp()">Sign In</button>
         &nbsp;&nbsp;&nbsp;
