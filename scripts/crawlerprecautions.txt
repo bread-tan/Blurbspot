@@ -1,0 +1,8 @@
+User Input:
+First letter of each word must be in caps
+Words must be seperated by underscore
+Take care of symbols(if we hav time)
+
+SongCrawler:
+Returns song names seperated by logical Or(|)
+Returns nothing if artist name is wrong
