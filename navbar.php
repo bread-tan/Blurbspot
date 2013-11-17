@@ -20,10 +20,21 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
         &nbsp;
-        <button class='btn btn-info navbar-btn' onclick="signUpModalBringUp()">Sign Up!</button>
+        <button class='btn btn-info navbar-btn' onclick="signUpModalBringUp()"><span class='glyphicon glyphicon-edit'></span> Sign Up!</button>
         &nbsp;
-        <button class='btn btn-primary navbar-btn' onclick="signInModalBringUp()">Sign In</button>
+        <button class='btn btn-primary navbar-btn' onclick="signInModalBringUp()"><span class='glyphicon glyphicon-log-in'></span> Sign In</button>
         &nbsp;&nbsp;&nbsp;
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
+<script>
+  function signInModalBringUp()
+  {
+    $('#signInModal').modal('toggle');
+  }
+
+  function signUpModalBringUp()
+  {
+    $('#signUpModal').modal('toggle');
+  }
+</script>

@@ -24,24 +24,38 @@
     <script>
       function crawlForData()
       {
-      //   $.post("crawlForPics.php", { q: <?php echo '"'.$bandname.'"'; ?> })
-      // .done(function(data)
-      // {
-      //   document.getElementById('picsDiv').innerHTML = data;
-      //   var width = document.getElementById('crawlProgressBar').style.width;
-      //   width = parseInt(width) + 33;
-      //   if(width >= 99)
-      //   {
-      //     width = 100;
-      //     document.getElementById('crawlProgressText').innerHTML("Fetching Complete!");
-      //   }
-      //   document.getElementById('crawlProgressBar').style.width=width+"%";
-      // });
+        $.post("crawlForPics.php", { q: <?php echo '"'.$bandname.'"'; ?> })
+      .done(function(data)
+      {
+        document.getElementById('picsDiv').innerHTML = data;
+        var width = document.getElementById('crawlProgressBar').style.width;
+        width = parseInt(width) + 33;
+        if(width >= 99)
+        {
+          width = 100;
+          document.getElementById('crawlProgressText').innerHTML("Fetching Complete!");
+        }
+        document.getElementById('crawlProgressBar').style.width=width+"%";
+      });
 
         $.post("crawlForBio.php", { q: <?php echo '"'.$bandname.'"'; ?> })
       .done(function(data)
       {
         document.getElementById('bioDiv').innerHTML = data;
+        var width = document.getElementById('crawlProgressBar').style.width;
+        width = parseInt(width) + 33;
+        if(width >= 99)
+        {
+          width = 100;
+          document.getElementById('crawlProgressText').innerHTML("Fetching Complete!");
+        }
+        document.getElementById('crawlProgressBar').style.width=width+"%";
+      });
+
+      $.post("crawlForSongs.php", { q: <?php echo '"'.$bandname.'"'; ?> })
+      .done(function(data)
+      {
+        document.getElementById('songsDiv').innerHTML = data;
         var width = document.getElementById('crawlProgressBar').style.width;
         width = parseInt(width) + 33;
         if(width >= 99)
