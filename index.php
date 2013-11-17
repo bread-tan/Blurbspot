@@ -80,6 +80,12 @@
       turn = turn % 3;
     }
 
+    function searchBand(source)
+    {
+      if(source != "nav")
+        window.location="search.php?q="+document.getElementById('queryText').value;
+    }
+
     callID = setInterval(changePictures, 3000);
 
   	</script>
@@ -98,9 +104,9 @@
 	<br>
 
 	<div id='searchBar' class='input-group' style='margin-left:60px;margin-right:60px'>
-		<input type='text' class='form-control' placeholder='Search for the latest updates of your favourite bands' autofocus>
+		<input type='text' class='form-control' id='queryText' placeholder='Search for the latest updates of your favourite bands' autofocus>
 		<span class="input-group-btn">
-			<button class='btn btn-primary'><span class='glyphicon glyphicon-search'></span> Search! </button>
+			<button class='btn btn-primary' onclick='searchBand("notnav")'><span class='glyphicon glyphicon-search'></span> Search! </button>
 		</span>
 	</div>
 
