@@ -93,7 +93,25 @@
     require_once("navbar.php");
   ?>
   <div class='well'>
-    <h1> <?php echo str_replace("_", " ", $bandname); ?><span>  </span><button class='btn btn-info' onclick='likeThisBand();' id='likeButton'><span class='glyphicon glyphicon-thumbs-up'> </span><strong> Like This Band!</strong></button></h1>
+    <?php
+      require_once("dbAccess.php");
+      mysqli_select_db($con, 'blurbspot') or die(mysqli_error($con));
+      $query = mysqli_query($con, "select * from likes where bandname='$bandname'");
+      $data = mysqli_fetch_array($query);
+      if(empty($_SESSION['username']))
+      {
+        echo "<h1>".str_replace("_", " ", $bandname)."<small> ".$data[1]." <span class='glyphicon glyphicon-thumbs-up'></small></h1>";
+        echo "<button class='btn btn-info' onclick='signInModalBringUp();' id='likeButton'><strong> Like this band! </strong></button>";
+      }
+      else
+      {
+        echo "<h1>".str_replace("_", " ", $bandname)."<small> ".$data[1]." <span class='glyphicon glyphicon-thumbs-up'></small></h1>";
+        $query = mysqli_query($con, "select * from userlikes where username='".$_SESSION['username']."' and bandname='$bandname'");
+        $data = mysqli_fetch_array($query);
+        if(empty($data))
+          echo "<button class='btn btn-info' onclick='likeThisBand();' id='likeButton'><strong> Like this band! </strong></button>";
+      }
+    ?>
     <hr>
     <h3 class='text-info' id='crawlProgressText'> Fetching data... </h3>
     <div class="progress progress-striped active">

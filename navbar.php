@@ -10,7 +10,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#"><strong>Blurbspot!</strong></a>
+    <a class="navbar-brand" href="index.php"><strong>Blurbspot!</strong></a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +32,7 @@
           }
           else
           {
-            echo "&nbsp;<button class='btn btn-info navbar-btn' onclick=''><span class='glyphicon glyphicon-user'></span>&nbsp;Hi there, ".$_SESSION['username']."!</button>";
+            echo "&nbsp;<button class='btn btn-info navbar-btn' onclick='window.location=\"user.php\";'><span class='glyphicon glyphicon-user'></span>&nbsp;Hi there, ".$_SESSION['username']."!</button>";
             echo "&nbsp;<button class='btn btn-primary navbar-btn' onclick='signOut()'><span class='glyphicon glyphicon-log-out'></span>&nbsp;Sign Out</button>&nbsp;&nbsp;";
           }
         ?>
@@ -192,7 +192,7 @@
     { 
       if(data == 'success')
       {
-        window.location="index.php";
+        window.location="";
       }
       else
       {
