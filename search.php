@@ -73,9 +73,17 @@
         $.post("like.php", { q: <?php echo '"'.$bandname.'"'; ?> })
       .done(function(data)
       {
-        document.getElementById('likeButton').innerHTML="<span class='glyphicon glyphicon-check'> </span><strong> You like this band!</strong>";
-        document.getElementById('likeButton').className="btn btn-success";
-        document.getElementById('likeButton').onclick="";
+        var targetButton = document.getElementById('likeButton');
+        targetButton.onclick="";
+        if(data != "success")
+        {
+          var parts = data.split("|");
+          targetButton.className=parts[0];
+          targetButton.innerHTML=parts[1];
+          return;
+        }
+        targetButton.innerHTML="<span class='glyphicon glyphicon-check'> </span><strong> You like this band!</strong>";
+        targetButton.className="btn btn-success";
         });
       }
     </script>
