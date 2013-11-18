@@ -33,7 +33,7 @@
         if(width >= 99)
         {
           width = 100;
-          document.getElementById('crawlProgressText').innerHTML("Fetching Complete!");
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
         }
         document.getElementById('crawlProgressBar').style.width=width+"%";
       });
@@ -47,7 +47,7 @@
         if(width >= 99)
         {
           width = 100;
-          document.getElementById('crawlProgressText').innerHTML("Fetching Complete!");
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
         }
         document.getElementById('crawlProgressBar').style.width=width+"%";
       });
@@ -61,20 +61,31 @@
         if(width >= 99)
         {
           width = 100;
-          document.getElementById('crawlProgressText').innerHTML("Fetching Complete!");
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
         }
         document.getElementById('crawlProgressBar').style.width=width+"%";
       });
 
       }
+
+      function likeThisBand()
+      {
+        $.post("like.php", { q: <?php echo '"'.$bandname.'"'; ?> })
+      .done(function(data)
+      {
+        document.getElementById('likeButton').innerHTML="<span class='glyphicon glyphicon-check'> </span><strong> You like this band!</strong>";
+        document.getElementById('likeButton').className="btn btn-success";
+        document.getElementById('likeButton').onclick="";
+        });
+      }
     </script>
 </head>
-<body onload='crawlForData()'>
+<body onload='crawlForData()' style="background-color:#5599bb;">
   <?php
     require_once("navbar.php");
   ?>
   <div class='well'>
-    <h1> <?php echo str_replace("_", " ", $bandname); ?> </h1>
+    <h1> <?php echo str_replace("_", " ", $bandname); ?><span>  </span><button class='btn btn-info' onclick='likeThisBand();' id='likeButton'><span class='glyphicon glyphicon-thumbs-up'> </span><strong> Like This Band!</strong></button></h1>
     <hr>
     <h3 class='text-info' id='crawlProgressText'> Fetching data... </h3>
     <div class="progress progress-striped active">
