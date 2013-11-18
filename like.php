@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	if(empty($_POST['q']))
 		return;
 	if(empty($_SESSION['username']))
@@ -6,7 +7,7 @@
 		echo "btn btn-danger|<span class='glyphicon glyphicon-warning-sign'> </span> <strong>Opps! </strong> You need to log in first.";
 		return;
 	}
-	
+
 	$bandname = $_POST['q'];
 
 	require_once("dbAccess.php");
@@ -23,5 +24,6 @@
 		mysqli_query($con, "update likes set numberOfLikes=numberOfLikes+1 where bandname='$bandname'");
 	}
 	mysqli_close($con);
-	return "success";
+	echo "success";
+	return;
 ?>
