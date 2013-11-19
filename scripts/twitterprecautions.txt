@@ -1,0 +1,8 @@
+TwitterUser:
+
+User input: band name with underscore seperatin each word. Case doesn't matter here
+Output: return band screen name if screen name present
+		else return $none$
+
+Calling twitter.php		
+eg : call twitter.php?count=2&screen_name=ArcticMonkeys
