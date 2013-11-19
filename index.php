@@ -103,12 +103,14 @@
 
 	<br>
 
-	<div id='searchBar' class='input-group' style='margin-left:60px;margin-right:60px'>
-		<input type='text' class='form-control' id='queryText' placeholder='Search for the latest updates of your favourite bands' autofocus>
-		<span class="input-group-btn">
-			<button class='btn btn-primary' onclick='searchBand("notnav")'><span class='glyphicon glyphicon-search'></span> Search! </button>
-		</span>
-	</div>
+	<form onsubmit='return false;'>
+    <div id='searchBar' class='input-group' style='margin-left:60px;margin-right:60px'>
+		  <input type='text' class='form-control' id='queryText' placeholder='Search for the latest updates of your favourite bands' autofocus>
+		  <span class="input-group-btn">
+			 <button class='btn btn-primary' onclick='searchBand("notnav")'><span class='glyphicon glyphicon-search'></span> Search! </button>
+		  </span>
+  	</div>
+  </form>
 
 	<br><br><br><br><br>
 

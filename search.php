@@ -110,6 +110,8 @@
         $data = mysqli_fetch_array($query);
         if(empty($data))
           echo "<button class='btn btn-info' onclick='likeThisBand();' id='likeButton'><strong> Like this band! </strong></button>";
+        else
+          echo "<strong><input type='button' class='btn btn-success' id='likeButton' value='You liked this!' disabled></strong>";
       }
     ?>
     <hr>

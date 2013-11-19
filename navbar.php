@@ -49,13 +49,14 @@
           <h4 class="modal-title">Sign In Form</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form onsubmit='return false;'>
             <input type="text" id='signInUsername' class="form-control" placeholder='Enter Your Username' autofocus>
             <br>
             <input type="password" id='signInPassword' class="form-control" placeholder='Enter Your Password'>
             <br>
             <input type="button" class='btn btn-primary' value='Log In!' onclick="validateSignIn()">
             <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("signInErrorDiv")'>
+            <input type="submit" style='display:none;' onclick='validateSignIn()'>
           </form>
           <div id='signInErrorDiv' style='display:none;'>
             <br><br>
@@ -81,7 +82,7 @@
           <h4 class="modal-title">Sign Up Form</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form onsubmit='return false;'>
             <input type="text" id='signUpUsername' class="form-control" placeholder='Enter A Username'>
             <br>
             <input type="password" id='signUpPass1' class="form-control" placeholder='Enter A Password'>
@@ -90,6 +91,7 @@
             <br>
             <input type="button" class='btn btn-info' value='Register' onclick='validateSignUp()'>
             <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("signUpErrorDiv")'>
+            <input type="submit" style='display:none;' onclick='validateSignUp()'>
           </form>
           <div id='signUpErrorDiv' style='display:none;'>
             <br><br>

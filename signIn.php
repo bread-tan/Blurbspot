@@ -11,7 +11,8 @@
 	
 	if(empty($data))
 	{
-		echo "<br><b>Invalid Username or Password.</b> Please checck the values entered and try again.";
+		echo "<br><b>Invalid Username or Password.</b> Please check the values entered and try again.<br><br>";
+		echo "<strong>Don't have an account?</strong><button class='btn-link' onclick='signInModalBringUp();signUpModalBringUp();'><span class='text-success'>Click here to register!</span></button>";
 		session_destroy();
 	}
 	else
@@ -23,7 +24,8 @@
 		}
 		else
 		{
-			echo "<br><b>Invalid Username or Password.</b> Please check the values entered and try again.";
+			echo "<br><b>Invalid Username or Password.</b> Please check the values entered and try again.<br><br>";
+			echo "<strong>Don't have an account?</strong><button class='btn-link' onclick='signInModalBringUp();signUpModalBringUp();'><span class='text-success'>Click here to register!</span></button>";
 			session_destroy();
 		}
 	}
