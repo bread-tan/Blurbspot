@@ -1,1 +1,2 @@
 python=C:\\Python27\\
+aotw=Daft_Punk

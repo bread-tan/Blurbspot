@@ -17,7 +17,7 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.php"><span class='glyphicon glyphicon-home'></span><strong> Home</strong></a></li>
-      <li><a href="#"><span class='glyphicon glyphicon-music'></span><strong> Artist of The Week</strong></a></li>
+      <li><a href="artistOTW.php"><span class='glyphicon glyphicon-music'></span><strong> Artist of The Week</strong></a></li>
       <li><a href="bandOTW.php"><span class='glyphicon glyphicon-music'></span><strong> Band of The Week</strong></a></li>
       <li><a href="top10.php"><span class='glyphicon glyphicon-star'></span><strong> Top 10</strong></a></li>
     </ul>

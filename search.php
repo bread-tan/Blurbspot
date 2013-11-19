@@ -100,11 +100,15 @@
       $data = mysqli_fetch_array($query);
       if(empty($_SESSION['username']))
       {
+        if(empty($data[1]))
+          $data[1] = 0;
         echo "<h1>".str_replace("_", " ", $bandname)."<small> ".$data[1]." <span class='glyphicon glyphicon-thumbs-up'></small></h1>";
         echo "<button class='btn btn-info' onclick='signInModalBringUp();' id='likeButton'><strong> Like this band! </strong></button>";
       }
       else
       {
+        if(empty($data[1]))
+          $data[1] = 0;
         echo "<h1>".str_replace("_", " ", $bandname)."<small> ".$data[1]." <span class='glyphicon glyphicon-thumbs-up'></small></h1>";
         $query = mysqli_query($con, "select * from userlikes where username='".$_SESSION['username']."' and bandname='$bandname'");
         $data = mysqli_fetch_array($query);
