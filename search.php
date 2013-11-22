@@ -24,33 +24,33 @@
     <script>
       function crawlForData()
       {
-      //   $.post("crawlForPics.php", { q: <?php echo '"'.$bandname.'"'; ?> })
-      // .done(function(data)
-      // {
-      //   document.getElementById('picsDiv').innerHTML = data;
-      //   var width = document.getElementById('crawlProgressBar').style.width;
-      //   width = parseInt(width) + 325;
-      //   if(width >= 99)
-      //   {
-      //     width = 100;
-      //     document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
-      //   }
-      //   document.getElementById('crawlProgressBar').style.width=width+"%";
-      // });
+        $.post("crawlForPics.php", { q: <?php echo '"'.$bandname.'"'; ?> })
+      .done(function(data)
+      {
+        document.getElementById('picsDiv').innerHTML = data;
+        var width = document.getElementById('crawlProgressBar').style.width;
+        width = parseInt(width) + 325;
+        if(width >= 99)
+        {
+          width = 100;
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
+        }
+        document.getElementById('crawlProgressBar').style.width=width+"%";
+      });
 
-      //   $.post("tweets.php", { screen_name: <?php echo '"'.$bandname.'"'; ?>, count: 10 })
-      // .done(function(data)
-      // {
-      //   document.getElementById('tweetsDiv').innerHTML = data;
-      //   var width = document.getElementById('crawlProgressBar').style.width;
-      //   width = parseInt(width) + 25;
-      //   if(width >= 99)
-      //   {
-      //     width = 100;
-      //     document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
-      //   }
-      //   document.getElementById('crawlProgressBar').style.width=width+"%";
-      // });
+        $.post("tweets.php", { screen_name: <?php echo '"'.$bandname.'"'; ?>, count: 10 })
+      .done(function(data)
+      {
+        document.getElementById('tweetsDiv').innerHTML = data;
+        var width = document.getElementById('crawlProgressBar').style.width;
+        width = parseInt(width) + 25;
+        if(width >= 99)
+        {
+          width = 100;
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
+        }
+        document.getElementById('crawlProgressBar').style.width=width+"%";
+      });
 
         $.post("crawlForBio.php", { q: <?php echo '"'.$bandname.'"'; ?> })
       .done(function(data)
@@ -66,19 +66,19 @@
         document.getElementById('crawlProgressBar').style.width=width+"%";
       });
 
-      // $.post("crawlForSongs.php", { q: <?php echo '"'.$bandname.'"'; ?> })
-      // .done(function(data)
-      // {
-      //   document.getElementById('songsDiv').innerHTML = data;
-      //   var width = document.getElementById('crawlProgressBar').style.width;
-      //   width = parseInt(width) + 25;
-      //   if(width >= 99)
-      //   {
-      //     width = 100;
-      //     document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
-      //   }
-      //   document.getElementById('crawlProgressBar').style.width=width+"%";
-      // });
+      $.post("crawlForSongs.php", { q: <?php echo '"'.$bandname.'"'; ?> })
+      .done(function(data)
+      {
+        document.getElementById('songsDiv').innerHTML = data;
+        var width = document.getElementById('crawlProgressBar').style.width;
+        width = parseInt(width) + 25;
+        if(width >= 99)
+        {
+          width = 100;
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
+        }
+        document.getElementById('crawlProgressBar').style.width=width+"%";
+      });
 
       }
 
