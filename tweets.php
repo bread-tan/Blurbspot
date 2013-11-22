@@ -1,10 +1,3 @@
-<html>
-<head>
-	<title>Band Tweets</title>
-</head>
-<body>
-
-
 <?php
 require_once('twitter_library/twitteroauth.php'); // Get it from: https://github.com/themattharris/tmhOAuth
  
@@ -40,24 +33,36 @@ foreach($configurations as $config)
 
 $new_screen_name = rtrim(shell_exec($pythonSource."python scripts/twitterusercrawler.py $screen_name"));
 
+if($new_screen_name == '$none$')
+{
+	echo "<h3 class='text-danger'>This band does not have a Twitter account!</h3>";
+	return;
+}
+
 $tweets = $connection->get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name='.$new_screen_name.'&count='.$count);
 // print_r($tweets);
-echo '<label>Name: '.$tweets[0]->user->name.'<label><br>';
-echo '<label>Profile Picture</label><br>';
-echo '<img src='.$tweets[0]->user->profile_image_url_https.'><br>';
-echo '<label>Followers: '.$tweets[0]->user->followers_count.'<br>';
-echo '<label><b>TWEETS</b><label><br>';
+echo '<div class="col-md-2" align="center"><h3>Name: <span class="text-info">'.ucwords(strtolower($tweets[0]->user->name)).'</span></h3><br>';
+echo '<img src='.$tweets[0]->user->profile_image_url_https.' height="100" ><br>';
+echo '<br><h3>Followers: <span class="text-info">'.$tweets[0]->user->followers_count.'</span></h3><br></div>';
+echo "<div class='col-md-10'><table>";
+$counter = 0;
 foreach($tweets as $tweet)
 {
-		echo '<label>Date:';
+		if($counter%2 == 0)
+		{
+			echo "<tr>";
+		}
+		echo '<td><strong>Date: </strong>';
 		$t = strtotime($tweet->created_at);
 		echo date('d/m/y H:i:s',$t).'<br>';
-		echo '<label><b>tweet:</b>';
-		echo $tweet->text;
-		echo '<br>';
-
+		echo '<h4>Tweet: </h4>';
+		echo "<p class='text-info'>".$tweet->text."</p></td>";
+		if($counter%2 == 1)
+		{
+			echo "</tr>";
+		}
+		$counter++;
 }
+echo "</div>";
  
 ?>
-</body>
-</html>

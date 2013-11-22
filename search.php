@@ -38,7 +38,7 @@
         document.getElementById('crawlProgressBar').style.width=width+"%";
       });
 
-        $.post("tweets.php", { screen_name: <?php echo '"'.$bandname.'"'; ?>, count: 5 })
+        $.post("tweets.php", { screen_name: <?php echo '"'.$bandname.'"'; ?>, count: 10 })
       .done(function(data)
       {
         document.getElementById('tweetsDiv').innerHTML = data;

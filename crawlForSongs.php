@@ -18,7 +18,7 @@
     {
     	if($i%5 == 0)
     		echo "<tr>";
-    	echo "<td><span class='glyphicon glyphicon-music'></span> ".$songs[$i]."</td>";
+    	echo "<td><span class='glyphicon glyphicon-music'></span> ".str_replace("%27", "'", $songs[$i])."</td>";
     	if($i%5 == 1)
     		echo "</td>";
     }
