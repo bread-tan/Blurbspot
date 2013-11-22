@@ -44,7 +44,7 @@ $tweets = $connection->get('https://api.twitter.com/1.1/statuses/user_timeline.j
 echo '<div class="col-md-2" align="center"><h3>Name: <span class="text-info">'.ucwords(strtolower($tweets[0]->user->name)).'</span></h3><br>';
 echo '<img src='.$tweets[0]->user->profile_image_url_https.' height="100" ><br>';
 echo '<br><h3>Followers: <span class="text-info">'.$tweets[0]->user->followers_count.'</span></h3><br></div>';
-echo "<div class='col-md-10'><table>";
+echo "<div class='col-md-10'><table class='table'>";
 $counter = 0;
 foreach($tweets as $tweet)
 {
@@ -56,7 +56,13 @@ foreach($tweets as $tweet)
 		$t = strtotime($tweet->created_at);
 		echo date('d/m/y H:i:s',$t).'<br>';
 		echo '<h4>Tweet: </h4>';
-		echo "<p class='text-info'>".$tweet->text."</p></td>";
+		$tweetText = $tweet->text;
+		preg_match_all("(http:[/][/][a-zA-Z0-9./]*)", $tweetText, $matches);
+		foreach($matches[0] as $match)
+		{
+			$tweetText = str_replace($match, "<a href='$match'><span style='color:#5555ee'>$match</span></a>", $tweetText);
+		}
+		echo "<p class='text-info'>".$tweetText."</p></td>";
 		if($counter%2 == 1)
 		{
 			echo "</tr>";

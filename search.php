@@ -118,14 +118,14 @@
       {
         if(empty($data[1]))
           $data[1] = 0;
-        echo "<h1>".str_replace("_", " ", $bandname)."<small> <span id='numberOfLikes' >".$data[1]."</span><span class='glyphicon glyphicon-thumbs-up'></small></h1>";
+        echo "<h1>".str_replace("_", " ", $bandname)."<small> &nbsp;<span class='glyphicon glyphicon-thumbs-up'></span><span id='numberOfLikes' >".$data[1]."</span></small></h1>";
         echo "<button class='btn btn-info' onclick='signInModalBringUp();' id='likeButton'><strong> Like this band! </strong></button>";
       }
       else
       {
         if(empty($data[1]))
           $data[1] = 0;
-        echo "<h1>".str_replace("_", " ", $bandname)."<small> <span id='numberOfLikes' >".$data[1]."</span><span class='glyphicon glyphicon-thumbs-up'></small></h1>";
+        echo "<h1>".str_replace("_", " ", $bandname)."<small> &nbsp;<span class='glyphicon glyphicon-thumbs-up'></span><span id='numberOfLikes' >".$data[1]."</span></small></h1>";
         $query = mysqli_query($con, "select * from userlikes where username='".$_SESSION['username']."' and bandname='$bandname'");
         $data = mysqli_fetch_array($query);
         if(empty($data))
@@ -137,7 +137,7 @@
     <hr>
     <h3 class='text-info' id='crawlProgressText'> Fetching data... </h3>
     <div class="progress progress-striped active">
-      <div class="progress-bar progress-bar-success" id='crawlProgressBar' role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 2%">
+      <div class="progress-bar" id='crawlProgressBar' role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 2%">
       </div>
     </div>
     <hr>
