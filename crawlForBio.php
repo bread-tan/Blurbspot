@@ -11,6 +11,12 @@
 		if($parts[0] == "python")
 			$pythonSource = $parts[1];
 	}
-	$string = shell_exec($pythonSource."python scripts\\biocrawler.py $bandname");
-	echo str_replace("\n", "<br>", $string);
+	$string = str_replace("\n", "<br>", shell_exec($pythonSource."python scripts\\biocrawler.py $bandname"));
+	// echo str_replace("\n", "<br>", $string);
+	preg_match_all("(http:[/][/][a-zA-Z0-9./]*)", $string, $matches);
+	foreach($matches[0] as $match)
+	{
+		$string = str_replace($match, "<a href='$match'><span style='color:#5555ee'>$match</span></a>", $string);
+	}
+	echo $string;
 ?>
