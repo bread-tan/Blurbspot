@@ -29,7 +29,21 @@
       {
         document.getElementById('picsDiv').innerHTML = data;
         var width = document.getElementById('crawlProgressBar').style.width;
-        width = parseInt(width) + 33;
+        width = parseInt(width) + 325;
+        if(width >= 99)
+        {
+          width = 100;
+          document.getElementById('crawlProgressText').innerHTML="Fetching Complete!";
+        }
+        document.getElementById('crawlProgressBar').style.width=width+"%";
+      });
+
+        $.post("tweets.php", { screen_name: <?php echo '"'.$bandname.'"'; ?>, count: 5 })
+      .done(function(data)
+      {
+        document.getElementById('tweetsDiv').innerHTML = data;
+        var width = document.getElementById('crawlProgressBar').style.width;
+        width = parseInt(width) + 25;
         if(width >= 99)
         {
           width = 100;
@@ -43,7 +57,7 @@
       {
         document.getElementById('bioDiv').innerHTML = data;
         var width = document.getElementById('crawlProgressBar').style.width;
-        width = parseInt(width) + 33;
+        width = parseInt(width) + 25;
         if(width >= 99)
         {
           width = 100;
@@ -57,7 +71,7 @@
       {
         document.getElementById('songsDiv').innerHTML = data;
         var width = document.getElementById('crawlProgressBar').style.width;
-        width = parseInt(width) + 33;
+        width = parseInt(width) + 25;
         if(width >= 99)
         {
           width = 100;
@@ -128,6 +142,9 @@
     <h1><small>Pictures</small></h1>
     <hr>
     <div id='picsDiv'> </div>
+    <h1><small>Latest Tweets</small></h1>
+    <hr>
+    <div id='tweetsDiv'> </div>
     <h1><small>Biography</small></h1>
     <hr>
     <div id='bioDiv'> </div>
