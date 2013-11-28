@@ -5,8 +5,9 @@ Welcome to the project "Blurbspot!"
 
 About
 -----
+
+> A blurb is a short summary or promotional piece accompanying a creative work.<
 Blurbspot! is a website, which gives you the latest Blurbs about your favourite bands. 
-> A blurb is a short summary or promotional piece accompanying a creative work. 
 This project aims to simplify updating a user on their favourite artist or band. 
 This is done by displaying to the user, the biography, images, social media interactions and songs of the artist. 
 By doing so, the user is kept up to date with all the recent happenings of their favourite band.
